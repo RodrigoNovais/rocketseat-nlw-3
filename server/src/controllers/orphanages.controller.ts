@@ -30,9 +30,26 @@ export const show = async (context: Context, next: Next) => {
 }
 
 export const store = async (context: Context, next: Next) => {
-    const insertedGraph = await Orphanages.query()
-        .insertGraph(context.request.body)
-        .withGraphFetched('images')
+    const { name, about, instructions, opening_hours, open_on_weekends, latitude, longitude } = context.request.body
+    const images = context.request.files.map(image => ({ path: image.filename }))
+
+    const insertedGraph = await Orphanages.transaction(async trx => {
+        const insertedGraph = await Orphanages.query(trx)
+            .allowGraph('[images]')
+            .insertGraph({
+                name,
+                about,
+                instructions,
+                opening_hours,
+                open_on_weekends: Boolean(open_on_weekends),
+                latitude: Number(latitude),
+                longitude: Number(longitude),
+                images
+            })
+            .withGraphFetched('images')
+
+        return insertedGraph
+    })
 
     context.status = 201
     context.body = insertedGraph
