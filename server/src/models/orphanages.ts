@@ -11,8 +11,8 @@ export default class Orphanages extends Model {
     opening_hours!: string
     open_on_weekends!: boolean
 
-    latitude!: string
-    longitude!: string
+    latitude!: number
+    longitude!: number
 
     images?: Images[]
 
