@@ -6,7 +6,9 @@
     "scripts": {
         "build": "tsc",
         "start": "tsnd --transpile-only --ignore-watch node_modules --respawn -r dotenv/config src/index.ts",
-        "test": "echo \"Error: no test specified\" && exit 0"
+        "test": "echo \"Error: no test specified\" && exit 0",
+        "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+        "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
     },
     "keywords": [
         "koa",
@@ -20,10 +22,14 @@
     "license": "ISC",
     "dependencies": {
         "@koa/router": "^9.4.0",
+        "knex": "^0.21.6",
         "koa": "^2.13.0",
         "koa-bodyparser": "^4.3.0",
         "koa-helmet": "^6.0.0",
-        "koa2-cors": "^2.0.6"
+        "koa2-cors": "^2.0.6",
+        "objection": "^2.2.3",
+        "pg": "^8.4.1",
+        "sqlite3": "^5.0.0"
     },
     "devDependencies": {
         "@types/koa": "^2.11.5",

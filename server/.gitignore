@@ -5,6 +5,12 @@
 ### dotenv ###
 .env
 
+### sqlite ###
+*.sqlite
+
+### keys ###
+*.key
+
 ### Node ###
 # Logs
 logs
