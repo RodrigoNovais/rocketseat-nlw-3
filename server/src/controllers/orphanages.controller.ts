@@ -1,13 +1,15 @@
 import { Context, Next } from 'koa'
 
 import Orphanages from '../models/orphanages'
+import orphanagesView from '../views/orphanages.view'
 
 export const index = async (context: Context, next: Next) => {
     const orphanages = await Orphanages.query()
         .withGraphFetched('images')
+        .modifyGraph('images', b => b.select(['id', 'path']))
 
     context.status = 200
-    context.body = orphanages
+    context.body = orphanagesView.renderMany(orphanages)
 
     return next()
 }
@@ -16,10 +18,11 @@ export const show = async (context: Context, next: Next) => {
     const orphanage = await Orphanages.query()
         .findById(context.params.id)
         .withGraphFetched('images')
+        .modifyGraph('images', b => b.select(['id', 'path']))
 
     if (orphanage) {
         context.status = 200
-        context.body = orphanage
+        context.body = orphanagesView.render(orphanage)
 
         return next()
     }
@@ -33,7 +36,7 @@ export const store = async (context: Context, next: Next) => {
     const { name, about, instructions, opening_hours, open_on_weekends, latitude, longitude } = context.request.body
     const images = context.request.files.map(image => ({ path: image.filename }))
 
-    const insertedGraph = await Orphanages.transaction(async trx => {
+    const orphanage = await Orphanages.transaction(async trx => {
         const insertedGraph = await Orphanages.query(trx)
             .allowGraph('[images]')
             .insertGraph({
@@ -52,18 +55,18 @@ export const store = async (context: Context, next: Next) => {
     })
 
     context.status = 201
-    context.body = insertedGraph
+    context.body = orphanagesView.render(orphanage)
 
     return next()
 }
 
 export const update = async (context: Context, next: Next) => {
-    const updatedOrphanage = await Orphanages.query()
+    const orphanage = await Orphanages.query()
         .patchAndFetchById(context.params.id, context.request.body)
         .withGraphFetched('images')
 
     context.status = 200
-    context.body = updatedOrphanage
+    context.body = orphanagesView.render(orphanage)
 
     return next()
 }
