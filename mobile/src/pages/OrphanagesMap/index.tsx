@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
+import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
 
 import { Text, View } from 'react-native'
@@ -19,10 +19,10 @@ const OrphanagesMap: React.FC = () => {
     const [orphanages, setOrphanages] = useState<Orphanage[]>([])
     const navigation = useNavigation()
 
-    useEffect(() => {
+    useFocusEffect(() => {
         api.get<Orphanage[]>('orphanages')
             .then(response => setOrphanages(response.data))
-    }, [])
+    })
 
     const handleNavigateToOrphanageDetails = (orphanage: Orphanage) => {
         navigation.navigate('OrphanageDetails', orphanage)
