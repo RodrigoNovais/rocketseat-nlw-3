@@ -6,7 +6,7 @@ export default {
     render(image: Images) {
         return {
             id: image.id,
-            url: `http://localhost:${PORT}/uploads/${image.path}`,
+            url: `http://192.168.15.16:${PORT}/uploads/${image.path}`,
         }
     },
 
