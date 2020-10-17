@@ -4,7 +4,6 @@
     "private": true,
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc",
         "start": "tsnd --transpile-only --ignore-watch node_modules --respawn -r dotenv/config src/index.ts",
         "test": "echo \"Error: no test specified\" && exit 0",
         "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
