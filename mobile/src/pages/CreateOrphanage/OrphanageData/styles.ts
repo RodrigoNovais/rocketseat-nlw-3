@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container: { flex: 1 },
 
     title: {
-        color: '#5c8599',
+        color: '#5C8599',
         fontSize: 24,
         fontFamily: 'Nunito_700Bold',
         marginBottom: 32,
@@ -14,20 +14,20 @@ export default StyleSheet.create({
     },
 
     label: {
-        color: '#8fa7b3',
+        color: '#8FA7B3',
         fontFamily: 'Nunito_600SemiBold',
         marginBottom: 8,
     },
 
     comment: {
         fontSize: 11,
-        color: '#8fa7b3',
+        color: '#8FA7B3',
     },
 
     input: {
-        backgroundColor: '#fff',
+        backgroundColor: '#FFFFFF',
         borderWidth: 1.4,
-        borderColor: '#d3e2e6',
+        borderColor: '#D3E2E6',
         borderRadius: 20,
         height: 56,
         paddingVertical: 18,
@@ -46,8 +46,40 @@ export default StyleSheet.create({
         marginRight: 8,
     },
 
+    imageWrapper: {
+        width: 64,
+        height: 64,
+
+        borderRadius: 20,
+        marginBottom: 32,
+        marginRight: 8,
+    },
+
+    imageRemove: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+
+        width: 32,
+        height: 32,
+
+        backgroundColor: '#FFFFFF',
+        borderWidth: 1,
+        borderColor: '#D3E2E5',
+
+        overflow: 'hidden',
+
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 0,
+        borderBottomLeftRadius: 20,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
     imagesInput: {
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: '#FFFFFF80',
         borderStyle: 'dashed',
         borderColor: '#96D2F0',
         borderWidth: 1.4,
@@ -62,11 +94,10 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 16,
     },
 
     nextButton: {
-        backgroundColor: '#15c3d6',
+        backgroundColor: '#15C3D6',
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
@@ -77,6 +108,6 @@ export default StyleSheet.create({
     nextButtonText: {
         fontFamily: 'Nunito_800ExtraBold',
         fontSize: 16,
-        color: '#FFF',
+        color: '#FFFFFF',
     }
 })
