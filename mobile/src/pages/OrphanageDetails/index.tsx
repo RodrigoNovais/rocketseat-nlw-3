@@ -3,7 +3,7 @@ import { useRoute, RouteProp } from '@react-navigation/native'
 import { Image, View, ScrollView, Text, Linking } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
 
-import { Feather, FontAwesome } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
 
 import MapView, { Marker } from 'react-native-maps'
 
@@ -81,11 +81,6 @@ const OrphanagesDetails: React.FC = () => {
                         </View>
                     ) }
                 </View>
-
-                <RectButton style={styles.contactButton} onPress={() => {}}>
-                    <FontAwesome name="whatsapp" size={24} color="#FFF" />
-                    <Text style={styles.contactButtonText}>Entrar em contato</Text>
-                </RectButton>
             </View>
         </ScrollView>
     )

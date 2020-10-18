@@ -114,21 +114,4 @@ export default StyleSheet.create({
     scheduleTextRed: {
         color: '#FF669D'
     },
-
-    contactButton: {
-        backgroundColor: '#3CDC8C',
-        borderRadius: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 56,
-        marginTop: 40,
-    },
-
-    contactButtonText: {
-        fontFamily: 'Nunito_800ExtraBold',
-        color: '#FFF',
-        fontSize: 16,
-        marginLeft: 16,
-    }
 })

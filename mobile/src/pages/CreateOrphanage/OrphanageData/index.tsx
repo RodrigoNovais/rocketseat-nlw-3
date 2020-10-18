@@ -22,7 +22,6 @@ const OrphanageData: React.FC = () => {
     const [about, setAbout] = useState<string>('')
     const [instructions, setInstructions] = useState<string>('')
     const [openingHours, setOpeningHours] = useState<string>('')
-    const [whatsapp, setWhatsapp] = useState<string>('')
     const [openOnWeekends, setOpenOnWeekends] = useState<boolean>(false)
 
     const [images, setImages] = useState<string[]>([])
@@ -79,9 +78,6 @@ const OrphanageData: React.FC = () => {
 
             <Text style={styles.label}>Sobre</Text>
             <TextInput style={[styles.input, { height: 110 }]} multiline value={about} onChangeText={setAbout} />
-
-            <Text style={styles.label}>Whatsapp</Text>
-            <TextInput style={styles.input} value={whatsapp} onChangeText={setWhatsapp} />
 
             <Text style={styles.label}>Fotos</Text>
 
