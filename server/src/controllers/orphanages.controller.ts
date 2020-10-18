@@ -44,7 +44,7 @@ export const store = async (context: Context, next: Next) => {
                 about,
                 instructions,
                 opening_hours,
-                open_on_weekends: Boolean(open_on_weekends),
+                open_on_weekends: open_on_weekends === 'true',
                 latitude: Number(latitude),
                 longitude: Number(longitude),
                 images
