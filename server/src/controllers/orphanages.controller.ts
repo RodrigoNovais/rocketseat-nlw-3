@@ -71,6 +71,7 @@ export const update = async (context: Context, next: Next) => {
     return next()
 }
 
+// TODO: Discard image when orphanage is deleted
 export const destroy = async (context: Context, next: Next) => {
     const numDeleted = await Orphanages.query()
         .deleteById(context.params.id)
