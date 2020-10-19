@@ -2,6 +2,7 @@ import compose from 'koa-compose'
 import Router from '@koa/router'
 
 import orphanages from './orphanages'
+import users from './users'
 
 function combine(...routers: Router[]) {
     if (!Array.isArray(routers))
@@ -17,4 +18,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine(orphanages)
+export default combine(orphanages, users)
