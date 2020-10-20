@@ -1,22 +1,43 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import PrivateRoutes from './PrivateRoutes'
+
 import Landing from '../pages/Landing'
-import CreateOrphanage from '../pages/CreateOrphanage'
-import Orphanage from '../pages/Orphanage'
 import OrphanagesMap from '../pages/OrphanagesMap'
 
-const Routes = () => {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path='/' exact component={Landing} />
-                <Route path='/app' component={OrphanagesMap} />
+import Register from '../pages/Register'
+import Login from '../pages/Login'
 
-                <Route path='/orphanages/create' component={CreateOrphanage} />
-                <Route path='/orphanages/:id' component={Orphanage} />
-            </Switch>
-        </BrowserRouter>
+import ForgotPassword from '../pages/ForgotPassword'
+import RedefinePassword from '../pages/RedefinePassword'
+
+import CreateOrphanage from '../pages/CreateOrphanage'
+import Orphanage from '../pages/Orphanage'
+
+import { AuthProvider } from '../contexts/auth'
+
+// TODO: Prevent user from access login pages when already logged
+// TODO: Prevent user from access redefine password by himself
+const Routes: React.FC = () => {
+    return (
+        <AuthProvider>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path='/' component={Landing} />
+                    <Route exact path='/app' component={OrphanagesMap} />
+
+                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/login' component={Login} />
+
+                    <Route exact path='/forgot/password' component={ForgotPassword} />
+                    <Route exact path='/redefine/password' component={RedefinePassword} />
+
+                    <PrivateRoutes exact path='/orphanages/create' component={CreateOrphanage} />
+                    <PrivateRoutes exact path='/orphanages/:id' component={Orphanage} />
+                </Switch>
+            </BrowserRouter>
+        </AuthProvider>
     )
 }
 

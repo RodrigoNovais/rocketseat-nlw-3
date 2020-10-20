@@ -5,14 +5,14 @@ import { FiClock, FiInfo } from 'react-icons/fi'
 
 import { Map, Marker, TileLayer } from 'react-leaflet'
 
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar'
 
-import { mapIcon } from '../utils/mapIcon'
+import { mapIcon } from '../../utils/mapIcon'
 
-import api from '../services/api'
-import { Orphanage as OrphanageType } from '../types/Orphanage'
+import api from '../../services/api'
+import { Orphanage as OrphanageType } from '../../types/Orphanage'
 
-import '../styles/pages/orphanage.css'
+import './styles.css'
 
 type RouteParams = {
     id: string

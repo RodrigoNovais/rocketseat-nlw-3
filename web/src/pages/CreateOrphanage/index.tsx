@@ -6,13 +6,13 @@ import { FiPlus, FiX } from 'react-icons/fi'
 import { Map, Marker, TileLayer } from 'react-leaflet'
 import { LeafletMouseEvent } from 'leaflet'
 
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar'
 
-import { mapIcon } from '../utils/mapIcon'
+import { mapIcon } from '../../utils/mapIcon'
 
-import api from '../services/api'
+import api from '../../services/api'
 
-import '../styles/pages/create-orphanage.css'
+import './styles.css'
 
 const CreateOrphanage: React.FC = () => {
     const history = useHistory()

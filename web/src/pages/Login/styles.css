@@ -1,0 +1,212 @@
+#login {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(330deg, #29B6D1 0%, #00C7C7 100%);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#login .content-wrapper {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login .content-wrapper img {
+    padding-bottom: 100px;
+}
+
+#login .content-wrapper .location {
+    font-size: 24px;
+    line-height: 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login .content-wrapper .location strong {
+    font-weight: 800;
+}
+
+#login main {
+    height: 100%;
+    width: 700px;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+    border: 1px solid #D3E2E5;
+
+    padding: 64px 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#login main .back {
+    position: absolute;
+
+    right: 64px;
+    top: 40px;
+
+    width: 60px;
+    height: 60px;
+
+    background: #EBF2F5;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.3s;
+}
+
+#login main .back:hover {
+    background-color: #D3E2E5;
+}
+
+form.login-form a {
+    text-decoration: none;
+    color: #8FA7B3;
+}
+
+form.login-form a:hover {
+    color: #5C8599;
+}
+
+form.login-form fieldset {
+    border: 0;
+}
+
+form.login-form fieldset legend {
+    width: 100%;
+
+    font-size: 36px;
+    color: #5C8599;
+    font-weight: 700;
+
+    margin-bottom: 40px;
+}
+
+form.login-form .input-block + .input-block,
+form.login-form .input-group + .input-block,
+form.login-form .input-block + .input-group {
+    margin-top: 24px;
+}
+
+form.login-form .input-block label {
+    display: flex;
+    color: #8FA7B3;
+    margin-bottom: 8px;
+    line-height: 24px;
+}
+
+form.login-form .input-block input {
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+    outline: none;
+    color: #5C8599;
+}
+
+form.login-form .input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form.login-form .check-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+form.login-form .check-block label {
+    display: flex;
+
+    cursor: pointer;
+    color: #8FA7B3;
+
+    margin-left: 8px;
+    line-height: 24px;
+}
+
+form.login-form .check-block input[type='checkbox'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 24px;
+    height: 24px;
+
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 8px;
+
+    appearance: none;
+    cursor: pointer;
+    transition: background 50ms ease;
+}
+
+form.login-form .check-block input[type='checkbox']::before {
+    content: '';
+
+    width: 5px;
+    height: 10px;
+
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0 3px 3px 0;
+
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+form.login-form .check-block input[type='checkbox']:checked {
+    background: #3CDC8C;
+}
+
+form.login-form .check-block input[type='checkbox']:checked::before {
+    opacity: 1;
+}
+
+form.login-form button.confirm-button {
+    margin-top: 32px;
+
+    width: 100%;
+    height: 64px;
+    border: 0;
+    cursor: pointer;
+    background: #3CDC8C;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.2s;
+}
+
+form.login-form button.confirm-button:hover {
+    background: #36CF82;
+}
+
+form.login-form button.confirm-button:disabled,
+form.login-form button.confirm-button:disabled:hover {
+    cursor: default;
+    background: #6BE3BF;
+}

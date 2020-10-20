@@ -5,13 +5,13 @@ import { FiArrowRight, FiPlus } from 'react-icons/fi'
 
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
-import mapMarkerImg from '../images/map-marker.svg'
-import { mapIcon } from '../utils/mapIcon'
+import mapMarkerImg from '../../images/map-marker.svg'
+import { mapIcon } from '../../utils/mapIcon'
 
-import api from '../services/api'
-import { Orphanage } from '../types/Orphanage'
+import api from '../../services/api'
+import { Orphanage } from '../../types/Orphanage'
 
-import '../styles/pages/orphanages-map.css'
+import './styles.css'
 
 const OrphanagesMap: React.FC = () => {
     const [orphanages, setOrphanages] = useState<Orphanage[]>([])
