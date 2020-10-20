@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import PrivateRoutes from './PrivateRoutes'
 
@@ -35,6 +35,8 @@ const Routes: React.FC = () => {
 
                     <PrivateRoutes exact path='/orphanages/create' component={CreateOrphanage} />
                     <PrivateRoutes exact path='/orphanages/:id' component={Orphanage} />
+
+                    <Route render={ ({ location }) => <Redirect to={{ pathname: '/', state: { from: location } }} />} />
                 </Switch>
             </BrowserRouter>
         </AuthProvider>
