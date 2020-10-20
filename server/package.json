@@ -22,7 +22,9 @@
     "dependencies": {
         "@koa/multer": "^3.0.0",
         "@koa/router": "^9.4.0",
+        "bcryptjs": "^2.4.3",
         "joi": "^17.2.1",
+        "jsonwebtoken": "^8.5.1",
         "knex": "^0.21.6",
         "koa": "^2.13.0",
         "koa-bodyparser": "^4.3.0",
@@ -35,6 +37,8 @@
         "sqlite3": "^5.0.0"
     },
     "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/jsonwebtoken": "^8.5.0",
         "@types/koa": "^2.11.5",
         "@types/koa-bodyparser": "^4.3.0",
         "@types/koa-helmet": "^5.2.0",

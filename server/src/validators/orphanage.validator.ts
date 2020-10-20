@@ -12,16 +12,16 @@ export const show = {
 export const store = {
     body: {
         schema: Joi.object().keys({
-            name: Joi.string().max(255).required(),
+            name: Joi.string().trim().max(255).required(),
             latitude: Joi.number().min(-90).max(90).required(),
             longitude: Joi.number().min(-180).max(180).required(),
-            about: Joi.string().max(65535).required(),
-            instructions: Joi.string().max(65535).required(),
-            opening_hours: Joi.string().max(255).required(),
+            about: Joi.string().trim().max(65535).required(),
+            instructions: Joi.string().trim().max(65535).required(),
+            opening_hours: Joi.string().trim().max(255).required(),
             open_on_weekends: Joi.boolean().default(false),
             images: Joi.array().items(
                 Joi.object().keys({
-                    path: Joi.string().required(),
+                    path: Joi.string().trim().required(),
                 })
             ),
         }),
@@ -32,12 +32,12 @@ export const store = {
 export const update = {
     body: {
         schema: Joi.object().keys({
-            name: Joi.string().max(255),
+            name: Joi.string().trim().max(255),
             latitude: Joi.number().min(-90).max(90),
             longitude: Joi.number().min(-180).max(180),
-            about: Joi.string().max(65535),
-            instructions: Joi.string().max(65535),
-            opening_hours: Joi.string().max(255),
+            about: Joi.string().trim().max(65535),
+            instructions: Joi.string().trim().max(65535),
+            opening_hours: Joi.string().trim().max(255),
             open_on_weekends: Joi.boolean(),
         }),
         options: { abortEarly: false }

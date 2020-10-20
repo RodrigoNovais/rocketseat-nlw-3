@@ -44,7 +44,7 @@ export const store = async (context: Context, next: Next) => {
                 about,
                 instructions,
                 opening_hours,
-                open_on_weekends: Boolean(open_on_weekends),
+                open_on_weekends: open_on_weekends === 'true',
                 latitude: Number(latitude),
                 longitude: Number(longitude),
                 images
@@ -71,6 +71,7 @@ export const update = async (context: Context, next: Next) => {
     return next()
 }
 
+// TODO: Discard image when orphanage is deleted
 export const destroy = async (context: Context, next: Next) => {
     const numDeleted = await Orphanages.query()
         .deleteById(context.params.id)
