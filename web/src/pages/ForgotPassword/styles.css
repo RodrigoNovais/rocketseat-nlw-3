@@ -1,0 +1,167 @@
+#forgot-password {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(330deg, #29B6D1 0%, #00C7C7 100%);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#forgot-password .content-wrapper {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#forgot-password .content-wrapper img {
+    padding-bottom: 100px;
+}
+
+#forgot-password .content-wrapper .location {
+    font-size: 24px;
+    line-height: 34px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#forgot-password .content-wrapper .location strong {
+    font-weight: 800;
+}
+
+#forgot-password main {
+    height: 100%;
+    width: 700px;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+    border: 1px solid #D3E2E5;
+
+    padding: 64px 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#forgot-password main .back {
+    position: absolute;
+
+    right: 64px;
+    top: 40px;
+
+    width: 60px;
+    height: 60px;
+
+    background: #EBF2F5;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.3s;
+}
+
+#forgot-password main .back:hover {
+    background-color: #D3E2E5;
+}
+
+form.forgot-password-form a {
+    text-decoration: none;
+    color: #8FA7B3;
+}
+
+form.forgot-password-form a:hover {
+    color: #5C8599;
+}
+
+form.forgot-password-form p {
+    max-width: 80%;
+
+    font-size: 22px;
+    color: #5C8599;
+    font-weight: 600;
+
+    margin-bottom: 40px;
+}
+
+form.forgot-password-form fieldset {
+    border: 0;
+}
+
+form.forgot-password-form fieldset legend {
+    width: 100%;
+
+    font-size: 36px;
+    color: #5C8599;
+    font-weight: 700;
+
+    margin-bottom: 40px;
+}
+
+form.forgot-password-form .input-block + .input-block,
+form.forgot-password-form .input-group + .input-block,
+form.forgot-password-form .input-block + .input-group {
+    margin-top: 24px;
+}
+
+form.forgot-password-form .input-block label {
+    display: flex;
+    color: #8FA7B3;
+    margin-bottom: 8px;
+    line-height: 24px;
+}
+
+form.forgot-password-form .input-block input {
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+    background: #F5F8FA;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+    outline: none;
+    color: #5C8599;
+}
+
+form.forgot-password-form .input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form.forgot-password-form button.confirm-button {
+    margin-top: 32px;
+
+    width: 100%;
+    height: 64px;
+    border: 0;
+    cursor: pointer;
+    background: #3CDC8C;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.2s;
+}
+
+form.forgot-password-form button.confirm-button:hover {
+    background: #36CF82;
+}
+
+form.forgot-password-form button.confirm-button:disabled,
+form.forgot-password-form button.confirm-button:disabled:hover {
+    cursor: default;
+    background: #6BE3BF;
+}
