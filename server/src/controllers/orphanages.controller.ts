@@ -1,7 +1,7 @@
 import { Context, Next } from 'koa'
 
 import Orphanages from '../models/orphanages'
-import orphanagesView from '../views/orphanages.view'
+import orphanagesMapper from '../mappers/orphanages.mapper'
 
 export const index = async (context: Context, next: Next) => {
     const orphanages = await Orphanages.query()
@@ -9,7 +9,7 @@ export const index = async (context: Context, next: Next) => {
         .modifyGraph('images', b => b.select(['id', 'path']))
 
     context.status = 200
-    context.body = orphanagesView.renderMany(orphanages)
+    context.body = orphanagesMapper.renderMany(orphanages)
 
     return next()
 }
@@ -22,7 +22,7 @@ export const show = async (context: Context, next: Next) => {
 
     if (orphanage) {
         context.status = 200
-        context.body = orphanagesView.render(orphanage)
+        context.body = orphanagesMapper.render(orphanage)
 
         return next()
     }
@@ -55,7 +55,7 @@ export const store = async (context: Context, next: Next) => {
     })
 
     context.status = 201
-    context.body = orphanagesView.render(orphanage)
+    context.body = orphanagesMapper.render(orphanage)
 
     return next()
 }
@@ -66,7 +66,7 @@ export const update = async (context: Context, next: Next) => {
         .withGraphFetched('images')
 
     context.status = 200
-    context.body = orphanagesView.render(orphanage)
+    context.body = orphanagesMapper.render(orphanage)
 
     return next()
 }
