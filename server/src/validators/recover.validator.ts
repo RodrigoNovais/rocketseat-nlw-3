@@ -10,11 +10,14 @@ export const recoverPassword = {
     } as ValidatorParameter,
 }
 
-export const recoverEmail = {
+export const redefinePassword = {
     body: {
-        schema: Joi.object().keys({ }),
+        schema: Joi.object().keys({
+            token: Joi.string().trim().required(),
+            password: Joi.string().trim().max(255).required(),
+        }),
         options: { abortEarly: false }
     } as ValidatorParameter,
 }
 
-export default { recoverEmail, recoverPassword }
+export default { redefinePassword, recoverPassword }
