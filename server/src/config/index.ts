@@ -4,6 +4,8 @@ import fs from 'fs'
 import multer from '@koa/multer'
 import { VerifyOptions, SignOptions, Algorithm } from 'jsonwebtoken'
 
+import { Options } from 'nodemailer/lib/smtp-transport'
+
 export const multerOptions: multer.Options = {
     storage: multer.diskStorage({
         destination: path.join(__dirname, '..', '..', 'uploads'),
@@ -13,6 +15,15 @@ export const multerOptions: multer.Options = {
             callback(null, fileName)
         },
     }),
+}
+
+export const mailTransporter: Options = {
+    host: String(process.env.MAIL_HOST),
+    port: Number(process.env.MAIL_PORT),
+    auth: {
+        user: String(process.env.MAIL_USER),
+        pass: String(process.env.MAIL_PASS)
+    }
 }
 
 export const verifyOptions: VerifyOptions = {

@@ -2,7 +2,7 @@ import { Context, Next } from 'koa'
 import crypt from 'bcryptjs'
 
 import Users from '../models/users'
-import usersView from '../views/users.view'
+import usersMapper from '../mappers/users.mapper'
 
 import { generate } from '../helper/jsonwebtoken'
 
@@ -16,7 +16,7 @@ export const show = async (context: Context, next: Next) => {
     if (user && crypt.compareSync(password, user.password)) {
         const token = await generate({ id: user.id })
 
-        context.body = usersView.render(user)
+        context.body = usersMapper.render(user)
         context.set('Authorization', token)
 
         return next()

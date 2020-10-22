@@ -1,6 +1,6 @@
 import Orphanages from '../models/orphanages'
 
-import ImagesView from './images.view'
+import ImagesMapper from './images.mapper'
 
 export default {
     render(orphanage: Orphanages) {
@@ -13,7 +13,7 @@ export default {
             open_on_weekends: orphanage.open_on_weekends,
             latitude: orphanage.latitude,
             longitude: orphanage.longitude,
-            images: ImagesView.renderMany(orphanage.images || []),
+            images: ImagesMapper.renderMany(orphanage.images || []),
         }
     },
 

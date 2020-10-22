@@ -1,13 +1,13 @@
 import { Context, Next } from 'koa'
 
 import Users from '../models/users'
-import usersView from '../views/users.view'
+import usersMapper from '../mappers/users.mapper'
 
 export const index = async (context: Context, next: Next) => {
     const users = await Users.query()
 
     context.status = 200
-    context.body = usersView.renderMany(users)
+    context.body = usersMapper.renderMany(users)
 
     return next()
 }
@@ -18,7 +18,7 @@ export const show = async (context: Context, next: Next) => {
 
     if (user) {
         context.status = 200
-        context.body = usersView.render(user)
+        context.body = usersMapper.render(user)
 
         return next()
     }
@@ -34,7 +34,7 @@ export const update = async (context: Context, next: Next) => {
         .patchAndFetchById(context.params.id, context.request.body)
 
     context.status = 200
-    context.body = usersView.render(user)
+    context.body = usersMapper.render(user)
 
     return next()
 }
