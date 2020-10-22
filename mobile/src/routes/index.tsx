@@ -1,31 +1,24 @@
 import React from 'react'
 
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { View, ActivityIndicator } from 'react-native'
 
-import CreateOrphanage from '../pages/CreateOrphanage'
+import AuthRoutes from './auth.routes'
+import AppRoutes from './app.routes'
 
-import OrphanagesDetails from '../pages/OrphanageDetails'
-import OrphanagesMap from '../pages/OrphanagesMap'
-
-import Header from '../components/Header'
-
-const { Navigator, Screen } = createStackNavigator()
+import { useAuth } from '../contexts/auth'
 
 const Routes: React.FC = () => {
-    return (
-        <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#F2F3F5' } }}>
-                <Screen name='OrphanagesMap' component={OrphanagesMap} />
-                <Screen name='OrphanageDetails' component={OrphanagesDetails} options={{
-                    headerShown: true,
-                    header: () => <Header title='Orfanato' showCancel={false} />
-                }} />
+    const { signed, loading } = useAuth()
 
-                <Screen name='CreateOrphanage' component={CreateOrphanage} />
-            </Navigator>
-        </NavigationContainer>
-    )
+    if (loading) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size='large' color='#666' />
+            </View>
+        )
+    }
+
+    return signed ? <AppRoutes /> : <AuthRoutes />
 }
 
 export default Routes
