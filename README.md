@@ -42,6 +42,13 @@ $ cd server
 # Instale as dependências
 $ npm install
 
+# Crie as chaves de encriptação
+# Este module utiliza de um par de chaves RSA para encriptação
+# Utilize de um `rsa key generator` para criar um par de chaves
+# Desde 2015 recomenda-se o minimo de 2048-bit keys para RSA
+-> Crie um diretório 'keys' dentro da pasta 'src'
+-> Armazene as chaves RSA publica e privada com os nomes 'public.key' e 'private.key' na pasta 'keys'
+
 # Adicione as variáveis de ambiente
 -> Crie um arquivo com o nome '.env'
 # Salve o token no arquivo .env
